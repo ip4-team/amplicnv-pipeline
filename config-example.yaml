@@ -1,0 +1,58 @@
+# genome reference which reads were aligned to
+genome:
+    build: hg19
+    fasta: resources/genome/hg19.fasta
+    index: resources/genome/hg19.fasta.fai
+
+
+filter:
+    # path to bed file of targets that should be filtered out (subtracted)
+    mappability: resources/AmpliseqExome/AmpliSeqExome.20141113.designed.below_0.76.bed
+    # skip filtering by mappability: true or false
+    skip: true
+
+
+exome:
+    bed: resources/AmpliseqExome/AmpliSeqExome.20141113.designed.bed
+
+
+test:
+    # path to test sample sheet (TSV format, first two columns: sample id, sex)
+    samples: resources/mocks/test/samples.tsv
+    # path test's data directory
+    dir: resources/mocks/test/
+
+
+baseline:
+    # path to baseline sheet (TSV format, first two columns: sample id, sex)
+    samples: resources/mocks/baseline/samples.tsv
+    # path baseline's data directory
+    dir: resources/mocks/baseline
+
+
+detection:
+    read-depth:
+        window-size: 10
+        window-step: 1
+    variants:
+        use: false
+
+
+annotation:
+    mappability: resources/AmpliseqExome/AmpliSeqExome.20141113.designed.mappability.bed
+
+
+gene-filter:
+    list: resources/mocks/gene-list.txt
+
+
+local-db-annotation:
+    skip: true
+    baseline-path-regex: "glob-regex"
+    min-overlap-fraction: 0.5
+
+
+output:
+    dir: results
+
+
