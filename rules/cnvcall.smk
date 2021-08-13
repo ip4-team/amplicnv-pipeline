@@ -25,5 +25,5 @@ rule detect_cnv:
     log:
         OUTPUT_DIR + "cnv-analysis/{sample}" + f'{FILTER_OPT}' + f'-{RD_WINDOW_SIZE}-{RD_WINDOW_STEP}' + ".log"
     shell:
-        "cnvfinder detectcfg --cfg-file {input} &> {log}"
+        "amplicnv detectcfg --cfg-file {input} &> {log}"
 
